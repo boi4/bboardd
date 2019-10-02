@@ -57,26 +57,3 @@ def find_urls(text, cwd):
             #print(cwd, elem, urls2[i])
     #print(urls2)
     return urls2
-
-#=============================================================================================================================================
-
-def get_hpc(path):
-    """
-    todo: add folders for weeks
-    """
-    if not os.path.isdir(path):
-        os.mkdir(path)
-
-    text = download_bb_page("_237249_1",  "_3923023_1")
-    h2_pos = find_h2s(text)
-
-    endings = [".pdf", ".zip", ".jpg", ".png"]
-    endings = []
-
-    for i, (posi, posj) in enumerate(h2_pos):
-        end_of_part = h2_pos[i+1][0] if i < len(h2_pos) - 1 else len(text)
-        name_of_part = text[posi:posj]
-        ddir = path + name_of_part.replace(" ", "_") + "/"
-        download_links(text[posi:end_of_part], endings, ddir, cwd="https://www.ole.bris.ac.uk/webapps/blackboard/content/")
-
-#get_hpc("/home/fecht/uni/sem5/hpc/")
