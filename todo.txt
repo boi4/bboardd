@@ -1,0 +1,4 @@
+- Add logging
+- Replace sys.exits with exceptions
+- improve scraping for specific course sites
+- Add args with argparse
