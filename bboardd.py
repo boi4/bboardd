@@ -165,7 +165,10 @@ class Bboardd:
 
 def main():
     b = Bboardd(base_dir="{}/uni/sem5".format(os.environ.get("HOME")))
-    b.run()
+    if "--once" in sys.argv:
+        b.update_files()
+    else:
+        b.run()
 
 if __name__ == "__main__":
     main()
